@@ -4,7 +4,7 @@ const { openSourceQuestionModel } = require('../Model/openSource.model');
 
 const openSourceRouter = express.Router();
 
-openSourceRouter.use(auth)
+// openSourceRouter.use(auth)
 
 openSourceRouter.get("/",async(req,res)=>{
     try{
@@ -16,7 +16,7 @@ openSourceRouter.get("/",async(req,res)=>{
     }
 });
 
-openSourceRouter.post("/add",async(req,res)=>{
+openSourceRouter.post("/add",auth,async(req,res)=>{
     
     try{
         let ques = new openSourceQuestionModel(req.body);
